@@ -7,7 +7,7 @@ import (
 
 type verification struct {
 	sync.RWMutex
-	ready bool
+	Ready bool
 	items map[uint8]string
 }
 
@@ -17,17 +17,15 @@ type MemoryService interface {
 }
 
 func NewService() MemoryService {
-	items := make(map[uint8]string, 0)
 	s := &verification{
-		items: items,
+		items: make(map[uint8]string, 0),
 	}
-	s.ready = true
-
+	s.Ready = true
 	return s
 }
 
 func (s *verification) SetPhoneAndCode(phone string, code uint8) error {
-	if !s.ready {
+	if !s.Ready {
 		return errors.New("verification service is not ready")
 	}
 	s.Lock()
@@ -38,7 +36,7 @@ func (s *verification) SetPhoneAndCode(phone string, code uint8) error {
 }
 
 func (s *verification) Verify(code uint8) (*string, error) {
-	if !s.ready {
+	if !s.Ready {
 		return nil, errors.New("verification service is not ready")
 	}
 	s.RLock()

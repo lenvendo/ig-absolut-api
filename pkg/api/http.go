@@ -5,13 +5,13 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/lenvendo/ig-absolut-api/tools/logging"
-	"github.com/lenvendo/ig-absolut-api/tools/tracing"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/tracing/opentracing"
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
+	"github.com/lenvendo/ig-absolut-api/tools/logging"
+	"github.com/lenvendo/ig-absolut-api/tools/tracing"
 	stdopentracing "github.com/opentracing/opentracing-go"
 	"github.com/pkg/errors"
 )

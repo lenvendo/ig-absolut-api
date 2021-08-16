@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 
-	pb "github.com/lenvendo/ig-absolut-api/internal/apipb"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/tracing/opentracing"
 	grpctransport "github.com/go-kit/kit/transport/grpc"
+	pb "github.com/lenvendo/ig-absolut-api/internal/apipb"
 	stdopentracing "github.com/opentracing/opentracing-go"
 	"google.golang.org/grpc"
 )

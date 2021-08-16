@@ -7,4 +7,3 @@ type Repository interface {
 	SetNewUser(ctx context.Context, phone string) error
 	SetConfirmedNewUser(ctx context.Context, phone string) (*string, error)
 }
-

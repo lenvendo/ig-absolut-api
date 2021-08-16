@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/jackc/pgx/v4/pgxpool"
-	"github.com/pkg/errors"
 	"github.com/lenvendo/ig-absolut-api/configs"
+	"github.com/pkg/errors"
 )
 
 const TimeStampLayout = "2006-01-02 15:04:05"

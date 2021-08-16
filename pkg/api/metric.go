@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	tool "github.com/lenvendo/ig-absolut-api/tools/metrics"
 	"github.com/go-kit/kit/metrics"
+	tool "github.com/lenvendo/ig-absolut-api/tools/metrics"
 )
 
 // NewMetricService returns an instance of an instrumenting Service.

@@ -5,10 +5,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/lenvendo/ig-absolut-api/configs"
 	"github.com/go-kit/kit/log"
 	grpctransport "github.com/go-kit/kit/transport/grpc"
 	"github.com/gorilla/mux"
+	"github.com/lenvendo/ig-absolut-api/configs"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 )

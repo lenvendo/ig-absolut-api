@@ -8,10 +8,10 @@ import (
 	"github.com/go-kit/kit/tracing/opentracing"
 	"github.com/go-kit/kit/transport/grpc"
 	grpctransport "github.com/go-kit/kit/transport/grpc"
-	stdopentracing "github.com/opentracing/opentracing-go"
 	pb "github.com/lenvendo/ig-absolut-api/internal/apipb"
 	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/lenvendo/ig-absolut-api/tools/tracing"
+	stdopentracing "github.com/opentracing/opentracing-go"
 	googlegrpc "google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

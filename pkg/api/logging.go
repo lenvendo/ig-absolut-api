@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
+	"github.com/lenvendo/ig-absolut-api/tools/logging"
 )
 
 // NewLoggingService returns a new instance of a logging Service.

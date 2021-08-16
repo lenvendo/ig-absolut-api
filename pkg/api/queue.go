@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/go-kit/kit/log"
 	kitnats "github.com/go-kit/kit/transport/nats"
+	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/nats-io/nats.go"
 )
 

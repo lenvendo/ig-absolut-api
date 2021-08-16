@@ -4,9 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
+	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"golang.org/x/time/rate"
 )
 

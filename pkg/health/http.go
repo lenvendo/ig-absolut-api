@@ -9,8 +9,8 @@ import (
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
-	"github.com/pkg/errors"
 	"github.com/lenvendo/ig-absolut-api/tools/logging"
+	"github.com/pkg/errors"
 )
 
 var (
