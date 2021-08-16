@@ -1,6 +1,6 @@
 APP?=./cmd/app
-BIN?=./bin/api
-PATH_ROJECT?=api
+BIN?=./bin/github.com/lenvendo/ig-absolut-api
+PATH_ROJECT?=github.com/lenvendo/ig-absolut-api
 
 VERSION?=0.1.0
 COMMIT?=$(shell git rev-parse --short HEAD)

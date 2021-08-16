@@ -10,18 +10,18 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
 	"github.com/lenvendo/ig-absolut-api/configs"
 	"github.com/lenvendo/ig-absolut-api/tools/limiting"
 	"github.com/lenvendo/ig-absolut-api/tools/sentry"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
 	"github.com/oklog/run"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"
 )
 
-// Server main struct for stms service
+// Server main struct for api service
 type Server struct {
 	cfg     *configs.Config
 	logger  log.Logger

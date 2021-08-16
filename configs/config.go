@@ -26,7 +26,7 @@ var options = []option{
 	{"postgres.master.port", "int", 5432, "postgres master port"},
 	{"postgres.master.user", "string", "postgres", "postgres master user"},
 	{"postgres.master.password", "string", "postgres", "postgres master password"},
-	{"postgres.master.database_name", "string", "postgres", "postgres master database name"},
+	{"postgres.master.database_name", "string", "example", "postgres master database name"},
 	{"postgres.master.secure", "string", "disable", "postgres master SSL support"},
 	{"postgres.master.max_conns_pool", "int", 150, "max number of connections pool postgres"},
 
@@ -34,7 +34,7 @@ var options = []option{
 	{"postgres.replica.port", "int", 5432, "postgres replica port"},
 	{"postgres.replica.user", "string", "postgres", "postgres replica user"},
 	{"postgres.replica.password", "string", "postgres", "postgres replica password"},
-	{"postgres.replica.database_name", "string", "postgres", "postgres replica database name"},
+	{"postgres.replica.database_name", "string", "example", "postgres replica database name"},
 	{"postgres.replica.secure", "string", "disable", "postgres replica SSL support"},
 	{"postgres.replica.max_conns_pool", "int", 150, "max number of connections pool postgres"},
 

@@ -3,23 +3,25 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/nats-io/nats.go"
+	"github.com/lenvendo/ig-absolut-api/internal/repository/token"
+	"github.com/lenvendo/ig-absolut-api/internal/repository/users"
+
 	"net/http"
 	"os"
 	"time"
 
+	"github.com/lenvendo/ig-absolut-api/configs"
+	"github.com/lenvendo/ig-absolut-api/internal/db"
+	"github.com/lenvendo/ig-absolut-api/internal/server"
 	"github.com/lenvendo/ig-absolut-api/pkg/api"
 	"github.com/lenvendo/ig-absolut-api/pkg/health"
-
-	"github.com/lenvendo/ig-absolut-api/configs"
-	"github.com/lenvendo/ig-absolut-api/internal/server"
 	"github.com/lenvendo/ig-absolut-api/tools/logging"
 	"github.com/lenvendo/ig-absolut-api/tools/metrics"
 	"github.com/lenvendo/ig-absolut-api/tools/sentry"
 	"github.com/lenvendo/ig-absolut-api/tools/tracing"
-	"github.com/lenvendo/ig-absolut-api/internal/db"
 
 	"github.com/go-kit/kit/log/level"
+	"github.com/nats-io/nats.go"
 )
 
 func main() {
@@ -74,7 +76,6 @@ func main() {
 	}
 	defer db.Close(ctx, dbConn)
 
-
 	nc, mainErr := nats.Connect(
 		fmt.Sprintf("nats://%s:%d", cfg.Nats.Host, cfg.Nats.Port),
 		nats.RetryOnFailedConnect(true),
@@ -88,7 +89,9 @@ func main() {
 	}
 	defer nc.Close()
 
-	apiService := initApiService(ctx, cfg)
+	usersRepository := users.NewRepository(ctx, dbConn)
+	tokensRepository := token.NewRepository(ctx, dbConn)
+	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, nc)
 	healthService := initHealthService(ctx, cfg)
 
 	s, err := server.NewServer(
@@ -129,8 +132,14 @@ func main() {
 	s.Run()
 }
 
-func initApiService(ctx context.Context, cfg *configs.Config) api.Service {
-	apiService := api.NewApiService()
+func initApiService(
+	ctx context.Context,
+	cfg *configs.Config,
+	users users.Repository,
+	tokens token.Repository,
+	nats *nats.Conn,
+) api.Service {
+	apiService := api.NewApiService(users, tokens, nats)
 	if cfg.Metrics.Enabled {
 		apiService = api.NewMetricsService(ctx, apiService)
 	}
