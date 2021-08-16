@@ -17,7 +17,7 @@ var (
 	_ easyjson.Marshaler
 )
 
-func easyjson3a9ed663DecodeApiPkgApi(in *jlexer.Lexer, out *UserRegResponse) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi(in *jlexer.Lexer, out *UserRegResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -48,7 +48,7 @@ func easyjson3a9ed663DecodeApiPkgApi(in *jlexer.Lexer, out *UserRegResponse) {
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi(out *jwriter.Writer, in UserRegResponse) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi(out *jwriter.Writer, in UserRegResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -64,27 +64,27 @@ func easyjson3a9ed663EncodeApiPkgApi(out *jwriter.Writer, in UserRegResponse) {
 // MarshalJSON supports json.Marshaler interface
 func (v UserRegResponse) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserRegResponse) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserRegResponse) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserRegResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi1(in *jlexer.Lexer, out *UserRegRequest) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi1(in *jlexer.Lexer, out *UserRegRequest) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -115,7 +115,7 @@ func easyjson3a9ed663DecodeApiPkgApi1(in *jlexer.Lexer, out *UserRegRequest) {
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi1(out *jwriter.Writer, in UserRegRequest) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi1(out *jwriter.Writer, in UserRegRequest) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -131,27 +131,27 @@ func easyjson3a9ed663EncodeApiPkgApi1(out *jwriter.Writer, in UserRegRequest) {
 // MarshalJSON supports json.Marshaler interface
 func (v UserRegRequest) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi1(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi1(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserRegRequest) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi1(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi1(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserRegRequest) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi1(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi1(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserRegRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi1(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi1(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi2(in *jlexer.Lexer, out *UserProfileResponse) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi2(in *jlexer.Lexer, out *UserProfileResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -190,7 +190,7 @@ func easyjson3a9ed663DecodeApiPkgApi2(in *jlexer.Lexer, out *UserProfileResponse
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi2(out *jwriter.Writer, in UserProfileResponse) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi2(out *jwriter.Writer, in UserProfileResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -206,27 +206,27 @@ func easyjson3a9ed663EncodeApiPkgApi2(out *jwriter.Writer, in UserProfileRespons
 // MarshalJSON supports json.Marshaler interface
 func (v UserProfileResponse) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi2(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi2(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserProfileResponse) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi2(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi2(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserProfileResponse) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi2(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi2(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserProfileResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi2(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi2(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi3(in *jlexer.Lexer, out *UserProfileRequest) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi3(in *jlexer.Lexer, out *UserProfileRequest) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -257,7 +257,7 @@ func easyjson3a9ed663DecodeApiPkgApi3(in *jlexer.Lexer, out *UserProfileRequest)
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi3(out *jwriter.Writer, in UserProfileRequest) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi3(out *jwriter.Writer, in UserProfileRequest) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -273,27 +273,27 @@ func easyjson3a9ed663EncodeApiPkgApi3(out *jwriter.Writer, in UserProfileRequest
 // MarshalJSON supports json.Marshaler interface
 func (v UserProfileRequest) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi3(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi3(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserProfileRequest) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi3(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi3(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserProfileRequest) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi3(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi3(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserProfileRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi3(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi3(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi4(in *jlexer.Lexer, out *UserConfirmResponse) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi4(in *jlexer.Lexer, out *UserConfirmResponse) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -324,7 +324,7 @@ func easyjson3a9ed663DecodeApiPkgApi4(in *jlexer.Lexer, out *UserConfirmResponse
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi4(out *jwriter.Writer, in UserConfirmResponse) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi4(out *jwriter.Writer, in UserConfirmResponse) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -340,27 +340,27 @@ func easyjson3a9ed663EncodeApiPkgApi4(out *jwriter.Writer, in UserConfirmRespons
 // MarshalJSON supports json.Marshaler interface
 func (v UserConfirmResponse) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi4(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi4(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserConfirmResponse) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi4(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi4(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserConfirmResponse) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi4(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi4(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserConfirmResponse) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi4(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi4(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi5(in *jlexer.Lexer, out *UserConfirmRequest) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi5(in *jlexer.Lexer, out *UserConfirmRequest) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -391,7 +391,7 @@ func easyjson3a9ed663DecodeApiPkgApi5(in *jlexer.Lexer, out *UserConfirmRequest)
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi5(out *jwriter.Writer, in UserConfirmRequest) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi5(out *jwriter.Writer, in UserConfirmRequest) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -407,27 +407,27 @@ func easyjson3a9ed663EncodeApiPkgApi5(out *jwriter.Writer, in UserConfirmRequest
 // MarshalJSON supports json.Marshaler interface
 func (v UserConfirmRequest) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi5(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi5(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v UserConfirmRequest) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi5(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi5(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *UserConfirmRequest) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi5(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi5(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *UserConfirmRequest) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi5(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi5(l, v)
 }
-func easyjson3a9ed663DecodeApiPkgApi6(in *jlexer.Lexer, out *User) {
+func easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi6(in *jlexer.Lexer, out *User) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -464,7 +464,7 @@ func easyjson3a9ed663DecodeApiPkgApi6(in *jlexer.Lexer, out *User) {
 		in.Consumed()
 	}
 }
-func easyjson3a9ed663EncodeApiPkgApi6(out *jwriter.Writer, in User) {
+func easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi6(out *jwriter.Writer, in User) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -510,23 +510,23 @@ func easyjson3a9ed663EncodeApiPkgApi6(out *jwriter.Writer, in User) {
 // MarshalJSON supports json.Marshaler interface
 func (v User) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjson3a9ed663EncodeApiPkgApi6(&w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi6(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v User) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjson3a9ed663EncodeApiPkgApi6(w, v)
+	easyjson3a9ed663EncodeGithubComLenvendoIgAbsolutApiPkgApi6(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *User) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjson3a9ed663DecodeApiPkgApi6(&r, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi6(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *User) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjson3a9ed663DecodeApiPkgApi6(l, v)
+	easyjson3a9ed663DecodeGithubComLenvendoIgAbsolutApiPkgApi6(l, v)
 }

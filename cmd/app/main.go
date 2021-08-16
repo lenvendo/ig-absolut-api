@@ -101,14 +101,13 @@ func main() {
 	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, verifyService, ec)
 	healthService := initHealthService(ctx, cfg)
 
-	s, err := server.NewServer(
+	s, mainErr := server.NewServer(
 		server.SetConfig(cfg),
 		server.SetLogger(logger),
 		server.SetHandler(
 			map[string]http.Handler{
-
-				"api":    api.MakeHTTPHandler(ctx, apiService),
-				"health": health.MakeHTTPHandler(ctx, healthService),
+				"api": api.MakeHTTPHandler(ctx, apiService),
+				"":    health.MakeHTTPHandler(ctx, healthService),
 			}),
 		server.SetGRPC(
 			api.JoinGRPC(ctx, apiService),
@@ -136,7 +135,10 @@ func main() {
 	}
 
 	s.AddSignalHandler()
-	s.Run()
+	if mainErr = s.Run(); mainErr != nil {
+		_ = level.Error(logger).Log("err", mainErr)
+		return
+	}
 }
 
 func initApiService(

@@ -58,7 +58,7 @@ var options = []option{
 	{"metrics.enabled", "bool", false, "Enables or disables metric"},
 	{"metrics.port", "int", 9153, "server http port"},
 
-	{"logger.level", "string", "emerg",
+	{"logger.level", "string", "info",
 		"Level of logging. A string that correspond to the following levels: emerg, alert, crit, err, warning, notice, info, debug"},
 	{"logger.time_format", "string", "2006-01-02T15:04:05.999999999", "Date format in logs"},
 }
