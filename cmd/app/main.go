@@ -106,7 +106,7 @@ func main() {
 		server.SetLogger(logger),
 		server.SetHandler(
 			map[string]http.Handler{
-				"api": api.MakeHTTPHandler(ctx, apiService),
+				"user": api.MakeHTTPHandler(ctx, apiService),
 				"":    health.MakeHTTPHandler(ctx, healthService),
 			}),
 		server.SetGRPC(
