@@ -3,7 +3,6 @@ package api
 import (
 	"context"
 	"crypto/rand"
-	"fmt"
 	"github.com/lenvendo/ig-absolut-api/internal/repository/token"
 	"github.com/lenvendo/ig-absolut-api/internal/repository/users"
 	"github.com/lenvendo/ig-absolut-api/internal/verification"
@@ -13,14 +12,19 @@ import (
 	"strconv"
 )
 
+type msg struct {
+	Phone string
+	Code  uint8
+}
+
 type apiService struct {
 	userRepo  users.Repository
 	tokenRepo token.Repository
 	verify    verification.MemoryService
-	nats      *nats.Conn
+	nats      *nats.EncodedConn
 }
 
-func NewApiService(userRepo users.Repository, tokenRepo token.Repository, verify verification.MemoryService, nats *nats.Conn) Service {
+func NewApiService(userRepo users.Repository, tokenRepo token.Repository, verify verification.MemoryService, nats *nats.EncodedConn) Service {
 	return &apiService{userRepo, tokenRepo, verify, nats}
 }
 
@@ -58,6 +62,9 @@ func (s *apiService) ApiUserProfile(ctx context.Context, req *UserProfileRequest
 		return &a, err
 	}
 	user, err := s.userRepo.GetUserBySessionId(ctx, req.Session)
+	if err != nil {
+		return &a, errors.Wrap(err, "there is no such user")
+	}
 	a.User = UnMarshallUser(user)
 	return &a, nil
 }
@@ -77,7 +84,7 @@ func (s *apiService) ApiUserRegistration(ctx context.Context, req *UserRegReques
 		return nil, errors.Wrap(err, "set phone in verification service layer")
 	}
 
-	if err := s.nats.Publish("tasks", []byte(fmt.Sprintf("phone:%s;code:%v", req.Phone, r.Int64()))); err != nil {
+	if err := s.nats.Publish("tasks", &msg{req.Phone, uint8(r.Int64())}); err != nil {
 		return nil, errors.Wrap(err, "publish phone in queue")
 	}
 

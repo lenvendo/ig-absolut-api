@@ -6,7 +6,6 @@ import (
 	"github.com/lenvendo/ig-absolut-api/internal/repository/token"
 	"github.com/lenvendo/ig-absolut-api/internal/repository/users"
 	"github.com/lenvendo/ig-absolut-api/internal/verification"
-
 	"net/http"
 	"os"
 	"time"
@@ -89,11 +88,17 @@ func main() {
 		return
 	}
 	defer nc.Close()
+	ec, err := nats.NewEncodedConn(nc, nats.JSON_ENCODER)
+	if err != nil {
+		_ = level.Error(logger).Log("failed to connect nats", mainErr)
+		return
+	}
+	defer ec.Close()
 
 	usersRepository := users.NewRepository(ctx, dbConn)
 	tokensRepository := token.NewRepository(ctx, dbConn)
 	verifyService := verification.NewService()
-	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, verifyService, nc)
+	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, verifyService, ec)
 	healthService := initHealthService(ctx, cfg)
 
 	s, err := server.NewServer(
@@ -140,7 +145,7 @@ func initApiService(
 	users users.Repository,
 	tokens token.Repository,
 	verify verification.MemoryService,
-	nats *nats.Conn,
+	nats *nats.EncodedConn,
 ) api.Service {
 	apiService := api.NewApiService(users, tokens, verify, nats)
 	if cfg.Metrics.Enabled {
