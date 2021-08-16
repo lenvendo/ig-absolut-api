@@ -1,0 +1,34 @@
+syntax = "proto3";
+package apipb;
+option go_package = "internal/apipb";
+
+message User {
+    string id = 1;
+    bool is_confirmed = 2;
+    string created_at = 3;
+    string updated_at = 4;
+}
+
+message UserRegRequest {
+    string phone = 1;
+}
+
+message UserRegResponse {
+    string status = 1;
+}
+
+message UserConfirmRequest {
+    string code = 1;
+}
+
+message UserConfirmResponse {
+    string session = 1;
+}
+
+message UserProfileRequest {
+    string session = 1;
+}
+
+message UserProfileResponse {
+    User user = 1;
+}

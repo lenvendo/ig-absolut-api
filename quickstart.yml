@@ -1,0 +1,48 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - data-volume:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  nats:
+    image: nats
+    expose:
+      - "4222"
+    ports:
+      - "6222:6222"
+      - "4222:4222"
+    hostname: nats-server
+  migration:
+    image: migrate/migrate
+    command: --path=/migrations/ --database="postgres://postgres:postgres@postgres:5432/postgres?sslmode=disable" up
+    volumes:
+      - ./migrations:/migrations
+    depends_on:
+      - postgres
+  app:
+    build:
+      context: .
+      args:
+        GITLAB_DEPLOYMENT_PRIVATE_KEY: ${GITLAB_DEPLOYMENT_PRIVATE_KEY}
+    depends_on:
+      - postgres
+      - migration
+    ports:
+      - 8080:8080
+      - 9090:9090
+    environment:
+      API_SERVER_HTTP_PORT: 8080
+      API_SERVER_GRPC_PORT: 9090
+      API_POSTGRES_HOST: postgres
+      API_POSTGRES_PORT: 5432
+      API_POSTGRES_USER: postgres
+      API_POSTGRES_PASSWORD: postgres
+      API_POSTGRES_NAME: postgres
+      API_POSTGRES_SECURE: disable
+volumes:
+  data-volume:

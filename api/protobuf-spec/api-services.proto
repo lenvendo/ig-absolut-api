@@ -1,0 +1,51 @@
+syntax = "proto3";
+package apipb;
+option go_package = "internal/apipb";
+
+import "google/api/annotations.proto";
+import "api-health.proto";
+import "api-user-registration.proto";
+
+service ApiService {
+  rpc ApiUserRegistration (UserRegRequest) returns (UserRegResponse) {
+    option (google.api.http) = {
+      post: "/user/reg"
+      body: "*"
+    };
+  }
+
+  rpc ApiUserConfirm (UserConfirmRequest) returns (UserConfirmResponse) {
+    option (google.api.http) = {
+      post: "/user/confirm"
+      body: "*"
+    };
+  }
+
+  rpc ApiUserProfile (UserProfileRequest) returns (UserProfileResponse) {
+    option (google.api.http) = {
+      get: "/user/profile"
+      body: "*"
+    };
+  }
+
+}
+
+service HealthService {
+  rpc Liveness (LivenessRequest) returns (LivenessResponse) {
+    option (google.api.http) = {
+      get: "/liveness"
+    };
+  }
+
+  rpc Readiness (ReadinessRequest) returns (ReadinessResponse) {
+    option (google.api.http) = {
+      get: "/readiness"
+    };
+  }
+
+  rpc Version (VersionRequest) returns (VersionResponse) {
+    option (google.api.http) = {
+      get: "/version"
+    };
+  }
+}
