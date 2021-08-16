@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/lenvendo/ig-absolut-api/internal/repository/token"
 	"github.com/lenvendo/ig-absolut-api/internal/repository/users"
+	"github.com/lenvendo/ig-absolut-api/internal/verification"
 
 	"net/http"
 	"os"
@@ -91,7 +92,8 @@ func main() {
 
 	usersRepository := users.NewRepository(ctx, dbConn)
 	tokensRepository := token.NewRepository(ctx, dbConn)
-	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, nc)
+	verifyService := verification.NewService()
+	apiService := initApiService(ctx, cfg, usersRepository, tokensRepository, verifyService, nc)
 	healthService := initHealthService(ctx, cfg)
 
 	s, err := server.NewServer(
@@ -137,9 +139,10 @@ func initApiService(
 	cfg *configs.Config,
 	users users.Repository,
 	tokens token.Repository,
+	verify verification.MemoryService,
 	nats *nats.Conn,
 ) api.Service {
-	apiService := api.NewApiService(users, tokens, nats)
+	apiService := api.NewApiService(users, tokens, verify, nats)
 	if cfg.Metrics.Enabled {
 		apiService = api.NewMetricsService(ctx, apiService)
 	}
